@@ -5,12 +5,11 @@ import YouTube from 'react-youtube';
 class App extends Component {
   constructor(props) {
     super(props)
-    
+
     this.state = {
       videoHasPlayed: false,
     }
   }
-
   render() {
     const opts = {
       width: '960',
@@ -23,7 +22,7 @@ class App extends Component {
 
     const video = (<p className="App-intro">
       <YouTube
-        videoId="QO5WZMyvNoY"
+        videoId="HC5W2licpew"
         opts={opts}
         onEnd={() => {
           this.setState({ videoHasPlayed: true })
@@ -31,14 +30,23 @@ class App extends Component {
       />
     </p>)
 
-    const form = (<iframe src="https://docs.google.com/a/doordash.com/forms/d/e/1FAIpQLSfaj1OyDq63aad7OVQRDgMgXWSh9pWZJ8zlr2NHa9J0WQUDig/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>)
+    const doc = (
+      <div className="App-header">
+        <h2>D007Dash</h2>
+        <iframe
+          height="620"
+          align="middle"
+          width="90%"
+          border="0"
+          src="https://docs.google.com/a/doordash.com/document/d/1RYvRPZ_e4utmC277byVoufkFl4iWS9pJvr03wg8Vz2g/edit?usp=sharing">
+
+        </iframe>
+      </div>
+      )
 
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>D007Dash</h2>
-        </div>
-        {this.state.videoHasPlayed ? form : video}
+        {this.state.videoHasPlayed ? doc : video}
       </div>
     );
   }
