@@ -40,13 +40,15 @@ class App extends Component {
   )
 
     const doc = (
-      <div className="App-header">
-        <h2>Hackathon 007</h2>
-        <h3>Add your ideas!</h3>
+      <div>
+        <div className="App-header">
+          <h2>Hackathon 007</h2>
+          <h3>Add your ideas!</h3>
+        </div>
         <iframe
-          height="620"
+          height="1000px"
           align="middle"
-          width="90%"
+          width="100%"
           border="0"
           src="https://docs.google.com/a/doordash.com/document/d/1CfFPOWArhWr02HvTrEklJWSYWBSE2eYgChiUXbGHOQg/edit?usp=sharing">
 
