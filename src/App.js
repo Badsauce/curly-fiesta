@@ -8,6 +8,7 @@ class App extends Component {
 
     this.state = {
       videoHasPlayed: false,
+      explosionHasPlayed: false,
     }
   }
   render() {
@@ -20,20 +21,28 @@ class App extends Component {
       },
     }
 
-    const video = (<p className="App-intro">
-      <YouTube
-        videoId="HC5W2licpew"
-        opts={opts}
-        onEnd={() => {
-          this.setState({ videoHasPlayed: true })
-        }}
-      />
-    </p>)
+    const video = (
+      <div>
+        <div className="App-header">
+          <h2>This message will self-destruct in 30 seconds</h2>
+        </div>
+        <p className="App-intro">
+          <YouTube
+            videoId="3a4fokshU9I"
+            opts={opts}
+            onEnd={() => {
+              this.setState({ videoHasPlayed: true })
+              window.setTimeout(() => {this.setState({ explosionHasPlayed: true })}, 1000)
+            }}
+          />
+        </p>
+      </div>
+  )
 
     const doc = (
       <div className="App-header">
-        <h2>D007Dash</h2>
-        <h3>Add your ideas!!!!!!!!!!!</h3>
+        <h2>Hackathon 007</h2>
+        <h3>Add your ideas!</h3>
         <iframe
           height="620"
           align="middle"
@@ -45,9 +54,15 @@ class App extends Component {
       </div>
       )
 
+    const boom = (
+      <div className="explosionContainer">
+        <img alt="explosion" className="explosion" src="https://media.giphy.com/media/26uTt2zN11nFuyH1C/giphy.gif"/>
+      </div>
+    )
+
     return (
       <div className="App">
-        {this.state.videoHasPlayed ? doc : video}
+        {this.state.videoHasPlayed ? (this.state.explosionHasPlayed ? doc : boom) : video}
       </div>
     );
   }
